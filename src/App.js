@@ -21,10 +21,9 @@ const data = [
 
 function App() {
   return (
-    <div className="App">
-      <h1>Accordion Example</h1>
+    <>
       <Accordion data={data} />
-    </div>
+    </>
   );
 }
 
