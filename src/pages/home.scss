@@ -9,7 +9,7 @@
     margin-bottom: 10px;
     border-radius: 4px;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: .6s;
   
     &.expanded {
       .accordion-header {
@@ -19,7 +19,7 @@
       .accordion-body {
         max-height: 1000px;
         opacity: 1;
-        transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out; // Adjusted animation duration
+        transition: .6s;
       }
     }
   }
@@ -47,20 +47,19 @@
     opacity: 0;
     overflow: hidden;
     padding: 10px;
-    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out; // Adjusted animation duration
+    transition: .6s;
   }
   
-  // Additional style to animate max-height
   @keyframes accordionMaxHeightAnimation {
     from {
       max-height: 0;
     }
     to {
-      max-height: 1000px; // Adjust this value based on your content
+      max-height: 1000px; 
     }
   }
   
   .accordion-item.expanded .accordion-body {
-    animation: accordionMaxHeightAnimation 0.6s ease-in-out; // Adjusted animation duration
+    animation: accordionMaxHeightAnimation .6s; 
   }
   

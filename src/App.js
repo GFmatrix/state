@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion from './pages/home'; // Adjust the import path based on your project structure
+import Accordion from './pages/home';
 
 const data = [
   {
