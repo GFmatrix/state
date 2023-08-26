@@ -2,31 +2,40 @@ import React, { useState } from 'react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import './home.scss';
 
-const AccordionItem = ({ item }) => {
-  const [expanded, setExpanded] = useState(false);
-
+const AccordionItem = ({ item, isOpen, onToggle }) => {
   const toggleAccordion = () => {
-    setExpanded(!expanded);
+    onToggle(item.id);
   };
 
   return (
-    <div className={`accordion-item ${expanded ? 'expanded' : ''}`}>
+    <div className={`accordion-item ${isOpen ? 'expanded' : ''}`}>
       <div className="accordion-header" onClick={toggleAccordion}>
         <span className="accordion-icon">
-          {expanded ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+          {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
         </span>
         {item.header}
       </div>
-      {expanded && <div className="accordion-body">{item.body}</div>}
+      {isOpen && <div className="accordion-body">{item.body}</div>}
     </div>
   );
 };
 
 const Accordion = ({ data }) => {
+  const [openItem, setOpenItem] = useState(null);
+
+  const handleToggle = itemId => {
+    setOpenItem(openItem === itemId ? null : itemId);
+  };
+
   return (
     <div className="accordion">
       {data.map(item => (
-        <AccordionItem key={item.id} item={item} />
+        <AccordionItem
+          key={item.id}
+          item={item}
+          isOpen={openItem === item.id}
+          onToggle={handleToggle}
+        />
       ))}
     </div>
   );

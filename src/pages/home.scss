@@ -19,7 +19,7 @@
       .accordion-body {
         max-height: 1000px;
         opacity: 1;
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out; // Adjusted animation duration
       }
     }
   }
@@ -47,6 +47,20 @@
     opacity: 0;
     overflow: hidden;
     padding: 10px;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out; // Adjusted animation duration
+  }
+  
+  // Additional style to animate max-height
+  @keyframes accordionMaxHeightAnimation {
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 1000px; // Adjust this value based on your content
+    }
+  }
+  
+  .accordion-item.expanded .accordion-body {
+    animation: accordionMaxHeightAnimation 0.6s ease-in-out; // Adjusted animation duration
   }
   
